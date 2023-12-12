@@ -32,7 +32,7 @@ ansible-playbook ../docker.install.yml --extra-vars "host=my_host user=my_user" 
 
 | Variables         | Default                                                                                   |  Description
 |-------------------|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| deb_architecture  | { `"x86_64": "amd64"`, `"aarch64": "arm64`"}                                              | A dictionary mapping system architectures to Docker architectures
+| deb_architecture  | { `"x86_64": "amd64"`, `"aarch64": "arm64"` }                                              | A dictionary mapping system architectures to Docker architectures
 | version_string    | `null`                                                                                    | Define this variable if you want to install a specific version of Docker. If not defined or left as an empty string, the playbook will install the latest version.
 
 
@@ -46,6 +46,10 @@ License
 
 Author Information
 ------------------
+
+Author: Sobit Amirov
+
+Mail: absalomoop@gmail.com; absalomoop2@gmail.com
 
 Group: DevOps Uzbekistan
 
