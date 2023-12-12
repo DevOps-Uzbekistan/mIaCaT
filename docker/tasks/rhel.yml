@@ -1,0 +1,26 @@
+---
+- name: Install required system packages
+  ansible.builtin.yum:
+    name: "yum-utils"
+    state: present
+    update_cache: true
+
+- name: Adding Docker's repository
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    mode: '0644'
+
+- name: Install Docker
+  ansible.builtin.yum:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - "docker-ce{{ '-' + version_string['rhel']['docker-ce'] if version_string['rhel']['docker-ce'] is defined and version_string['rhel']['docker-ce'] != '' else '' }}"
+    - "docker-ce-cli{{ '-' + version_string['rhel']['docker-ce-cli'] if version_string['rhel']['docker-ce-cli'] is defined and version_string['rhel']['docker-ce-cli'] != '' else '' }}"
+    - "containerd.io"
+    - "docker-buildx-plugin"
+    - "docker-compose-plugin"
+  notify:
+    - Docker enable now

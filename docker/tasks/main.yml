@@ -1,0 +1,8 @@
+---
+- name: Include the playbook for Ubuntu
+  ansible.builtin.include_tasks: ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Include the playbook for Rhel
+  ansible.builtin.include_tasks: rhel.yml
+  when: ansible_distribution == 'RedHat'

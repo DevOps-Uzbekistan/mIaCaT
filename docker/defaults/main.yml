@@ -1,0 +1,13 @@
+---
+deb_architecture: {
+  "x86_64": "amd64",
+  "aarch64": "arm64"
+}
+
+version_string: {
+  "rhel": {
+    "docker-ce": "3:20.10.0-3.el8",
+    "docker-ce-cli": "1:20.10.0-3.el8"
+  },
+  "ubuntu": ""
+}

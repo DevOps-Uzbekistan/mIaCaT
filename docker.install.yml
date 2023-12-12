@@ -1,0 +1,9 @@
+---
+- name: Running Docker installation ansible playbook
+  hosts: "{{ host  }}"
+  become: true
+  gather_facts: true
+  remote_user: "{{ user }}"
+  
+  roles:
+    - docker
